@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Exemplo com Notícias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .open-modal-btn {
+            background-color: #f04e23;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .open-modal-btn:hover {
+            background-color: #c43e1c;
+            transform: scale(1.05);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px; /* Aumentei a largura do modal para acomodar o aside */
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease-out;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Espaçamento entre o conteúdo principal e o aside */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #f04e23;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .modal-header img {
+            width: 80px;
+            height: 40px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            margin-top: 15px;
+        }
+
+        .modal-body img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-footer div {
+            background-color: #f04e23;
+            padding: 12px 24px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos do aside dentro do modal */
+        aside {
+            width: 250px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        aside h3 {
+            text-align: center;
+            color: #f04e23;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        aside ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        aside ul li:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .modal-content {
+                flex-direction: column;
+                width: 90%;
+            }
+
+            aside {
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="open-modal-btn" id="openModalBtn">Abrir Modal</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span class="close" id="closeModalBtn">&times;</span>
+                
+                <div class="modal-body">
+                    <img src="imagens/Cute Red Streaming Twitch Banner.jpg" alt="Imagem do Corpo">
+                </div>
+                <div class="modal-header">
+                    <img src="https://via.placeholder.com/80x40" alt="Imagem de Cabeçalho">
+                    
+                </div>
+            </div>
+
+            <!-- Seção lateral de notícias dentro do modal -->
+            <aside>
+                <h3>Últimas Notícias</h3>
+                <ul>
+                    <li>Notícia 1: Atualização de sistema disponível.</li>
+                    <li>Notícia 2: Novo recurso de integração lançado.</li>
+                    <li>Notícia 3: Manutenção programada para amanhã.</li>
+                    <li>Notícia 4: Melhorias de desempenho implementadas.</li>
+                    <li>Notícia 5: Melhorias de desempenho implementadas.</li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById("myModal");
+            const openModalBtn = document.getElementById("openModalBtn");
+            const closeModalBtn = document.getElementById("closeModalBtn");
+
+            function toggleModal(display) {
+                modal.style.display = display;
+                if (display === "block") {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            openModalBtn.addEventListener('click', () => toggleModal("block"));
+            closeModalBtn.addEventListener('click', () => toggleModal("none"));
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    toggleModal("none");
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    toggleModal("none");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Faz o body ocupar toda a altura da tela */
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 300px; /* Ajuste conforme necessário */
+    margin: 0; /* Remove a margem para centralização vertical */
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Altura dos cards, ajuste conforme necessário */
+    border-radius: 20px; /* Bordas arredondadas */
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+    background-color: #fff; /* Fundo branco para melhor visualização das bordas */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px; /* Bordas arredondadas na imagem */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px; /* Tamanho da fonte ajustado para o tamanho menor dos cards */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item:not(.active) {
+    opacity: 0.3;
+    filter: blur(5px);
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}

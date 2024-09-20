@@ -1,0 +1,285 @@
+body {
+    margin: 0;
+    background-image: url(imagens/main.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container do carrossel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+
+/* Botões de rolagem */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 123, 255, 0.8);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.scroll-button.left {
+    left: -50px;
+}
+
+.scroll-button.right {
+    right: -50px;
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 123, 255, 1);
+}
+
+
+
+
+
+
+/* Estilização da barra de navegação */
+.navbar {
+    
+    background: linear-gradient(45deg, #8c3807f1, #ee8e56ee, #8c3807f1);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Espaçamento interno */
+    position: fixed; /* Fixar a barra de navegação no topo da página */
+    width: 100%; /* Ocupa toda a largura da página */
+    top: 0; /* Posiciona no topo da página */
+    z-index: 1000; /* Garante que a barra de navegação fique sobre outros elementos */
+    display: flex; /* Usa flexbox para layout */
+    justify-content: space-between; /* Espaça os itens para que fiquem nos extremos */
+    align-items: center; /* Alinha verticalmente */
+}
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+/* Estilização da lista de links de navegação */
+.nav-list {
+    list-style-type: none; /* Remove os marcadores dos itens da lista */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    display: flex; /* Alinha os itens horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+}
+
+.nav-list li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+.nav-list a {
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    align-items: center; /* Alinha verticalmente o conteúdo */
+}
+
+.nav-list img {
+    max-height: 50px; /* Ajuste o tamanho da imagem */
+}
+nav a{
+    text-decoration: none;
+    color: #fff;
+  
+}
+nav a.logo{
+    font-size: 30px;
+}
+nav img{
+    width: 50px;
+    height: 50px;
+}
+/* Estilização dos ícones */
+.icon-list {
+    list-style-type: none; /* Remove os marcadores dos itens da lista */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    display: flex; /* Alinha os ícones horizontalmente */
+    margin-left: auto; /* Move a lista de ícones para o lado direito */
+}
+
+.icon-list li {
+    margin: 0 10px; /* Espaçamento entre os ícones */
+}
+
+.icon-list a {
+    color: #fff; /* Cor dos ícones */
+    font-size: 20px; /* Tamanho dos ícones */
+    transition: color 0.3s ease; /* Transição suave para a cor do ícone */
+}
+
+.icon-list a:hover {
+    color: #f39c12; /* Cor dos ícones quando o mouse passa sobre eles */
+}
+/*////// Main ////*/
+
+.component{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+/*/////// Livro ////////*/
+
+.book {
+  position: relative;
+  border-radius: 3px;
+  width: 190px;
+  height: 300px;
+  background-color: whitesmoke;
+  background-size: cover;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #000;
+  margin: 20px;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: #fff;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.book:hover .cover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: rotatey(-80deg);
+  -ms-transform: rotatey(-80deg);
+  transform: rotatey(-80deg);
+}
+
+p {
+  font-size: 20px;
+  font-weight: bolder;
+}
+.book.xadrez{
+    background-image: url(imagens/xadtema.jpg);
+}
+.cover.xadrez{
+    background-image: url(imagens/Xadrez\ \(1\).jpg);
+}
+.velha{
+        background-image: url('imagens/velha.png');
+    }
+.amor{
+    background-image: url('imagens/livro.png');
+}
+/*///// botão ////*/
+.button {
+    --bg: #000;
+    --hover-bg: #90deff;
+    --hover-text: #000;
+    color: #fff;
+    cursor: pointer;
+    
+    border-radius: 4px;
+    padding: 0.8em 2em;
+    background: var(--bg);
+    transition: 0.2s;
+  }
+.book.xadrez .button:hover {
+    color: #9d1010;
+    transform: translate(-0.25rem, -0.25rem);
+    background: #fff;
+    box-shadow: 0.25rem 0.25rem var(--bg);
+    border: 2.5px solid #9d1010;
+  }
+  
+  .button:hover {
+    color: var(--hover-text);
+    transform: translate(-0.25rem, -0.25rem);
+    background: var(--hover-bg);
+    box-shadow: 0.25rem 0.25rem var(--bg);
+  }
+  
+  .button:active {
+    transform: translate(0);
+    box-shadow: none;
+  }
+
+  .component {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+  
+
+  
+  .component .book button {
+    font-size: 1em;
+    font-weight: 700;
+  }
+  
+
+  .component .book:hover {
+    transform: scale(1.2, 1.2);
+  }
+  
+  .component:hover > .book:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+  }
