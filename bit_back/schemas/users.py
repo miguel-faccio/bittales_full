@@ -9,7 +9,6 @@ class UsuarioCreate(BaseModel):
     usuario_foto: Optional[str] = None
     data_criacao_user: datetime
     categoria_user: int  # Referência à categoria (ID)
-    total_time_user: datetime
 
 class UsuarioRead(BaseModel):
     id_usuario: int
@@ -19,7 +18,7 @@ class UsuarioRead(BaseModel):
     usuario_foto: Optional[str] = None
     data_criacao_user: datetime
     categoria_user: int  # Referência à categoria (ID)
-    total_time_user: datetime
+
 
 
 class UsuarioReadWithFeedback(BaseModel):
@@ -34,7 +33,7 @@ class UsuarioUpdate(BaseModel):
     usuario_foto: Optional[str] = None
     data_criacao_user: Optional[datetime] = None
     categoria_user: Optional[int] = None  # Referência à categoria (ID)
-    total_time_user: datetime
+
 
 class UsuarioReadList(BaseModel):
     usuarios: list[UsuarioRead]

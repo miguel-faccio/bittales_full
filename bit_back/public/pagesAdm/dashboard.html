@@ -23,7 +23,7 @@
                     <li><a href="#categoria">Categorias</a></li>
                     <li><a href="#rank">Rank</a></li>
                 </ul>
-                <img src="../../public/images/pine.png">
+
             </nav>
         </aside>
 
@@ -87,44 +87,7 @@
                     </table>
                 </section>
 
-<!--                <section id="conquistas">-->
-<!--                    <h3>Conquistas</h3>-->
-<!--                    <button class="btn-add">Adicionar Nova Conquista</button>-->
-<!--                    <table>-->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!--                            <th>ID</th>-->
-<!--                            <th>Nome</th>-->
-<!--                            <th>Descrição</th>-->
-<!--                            <th>Recompensa</th>-->
-<!--                            <th>Jogo</th>-->
-<!--                            <th>Ações</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        &lt;!&ndash; Dados das conquistas vão aqui &ndash;&gt;-->
-<!--                        </tbody>-->
-<!--                    </table>-->
-<!--                </section>-->
-
-<!--                <section id="desafios">-->
-<!--                    <h3>Desafios</h3>-->
-<!--                    <button class="btn-add">Adicionar Novo Desafio</button>-->
-<!--                    <table>-->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!--                            <th>ID</th>-->
-<!--                            <th>Nome</th>-->
-<!--                            <th>Requisito</th>-->
-<!--                            <th>Jogo</th>-->
-<!--                            <th>Ações</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        &lt;!&ndash; Dados dos desafios vão aqui &ndash;&gt;-->
-<!--                        </tbody>-->
-<!--                    </table>-->
-<!--                </section>-->
+<!-
 
                 <section id="categoria">
                     <h3>Categorias</h3>
@@ -142,27 +105,119 @@
                         </tbody>
                     </table>
                 </section>
-
-<!--                <section id="rank">-->
-<!--                    <h3>Rank</h3>-->
-<!--                    <button class="btn-add">Adicionar Novo Rank</button>-->
-<!--                    <table>-->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!--                            <th>ID</th>-->
-<!--                            <th>Nome</th>-->
-<!--                            <th>Ícone</th>-->
-<!--                            <th>Tema</th>-->
-<!--                            <th>Troféus Mínimos</th>-->
-<!--                            <th>Ações</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        &lt;!&ndash; Dados dos ranks vão aqui &ndash;&gt;-->
-<!--                        </tbody>-->
-<!--                    </table>-->
-<!--                </section>-->
             </section>
+            <section id="usuarioForm" class="d-none">
+    <h2 id="formTitle">Cadastrar Novo Usuário</h2>
+    <form id="usuarioFormElement">
+        <input type="hidden" id="usuarioId">
+
+        <div class="mb-3">
+            <label for="nomeUsuario" class="form-label">Nome do Usuário</label>
+            <input type="text" class="form-control" id="nomeUsuario" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="emailUsuario" class="form-label">Email do Usuário</label>
+            <input type="email" class="form-control" id="emailUsuario" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="senhaUsuario" class="form-label">Senha do Usuário</label>
+            <input type="password" class="form-control" id="senhaUsuario" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="categoriaUsuario" class="form-label">Categoria de Usuário</label>
+            <select id="categoriaUsuario" class="form-select" required>
+                <!-- As opções serão populadas dinamicamente via JS -->
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</section>
+            <section id="categoriaForm" class="d-none">
+    <h2 id="formTitle">Cadastrar Nova Categoria</h2>
+    <form id="categoriaFormElement">
+        <input type="hidden" id="categoriaId">
+
+        <div class="mb-3">
+            <label for="nomeCategoria" class="form-label">Nome da Categoria</label>
+            <input type="text" class="form-control" id="nomeCategoria" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</section>
+<section id="feedbackForm" class="d-none">
+    <h2 id="formTitle">Enviar Feedback</h2>
+    <form id="feedbackFormElement">
+        <input type="hidden" id="feedbackId">
+
+        <div class="mb-3">
+            <label for="textFeed" class="form-label">Texto do Feedback</label>
+            <textarea class="form-control" id="textFeed" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="rating" class="form-label">Avaliação</label>
+            <select id="rating" class="form-select" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="usuarioId" class="form-label">Usuário</label>
+            <select id="usuarioId" class="form-select" required>
+                <!-- As opções serão populadas dinamicamente via JS -->
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar Feedback</button>
+    </form>
+</section>
+<section id="gameForm" class="d-none">
+    <h2 id="formTitle">Cadastrar Novo Jogo</h2>
+    <form id="gameFormElement">
+        <input type="hidden" id="gameId">
+
+        <div class="mb-3">
+            <label for="gameName" class="form-label">Nome do Jogo</label>
+            <input type="text" class="form-control" id="gameName" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="gameDesc" class="form-label">Descrição do Jogo</label>
+            <textarea class="form-control" id="gameDesc" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="dataLancamentoJogo" class="form-label">Data de Lançamento</label>
+            <input type="date" class="form-control" id="dataLancamentoJogo" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="regraGame" class="form-label">Regras do Jogo</label>
+            <textarea class="form-control" id="regraGame" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="categoriaGame" class="form-label">Categoria do Jogo</label>
+            <select id="categoriaGame" class="form-select" required>
+                <!-- As opções serão populadas dinamicamente via JS -->
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</section>
+
+
         </div>
     </main>
 </div>
@@ -216,5 +271,11 @@
         }
     });
 </script>
+<script src="../jsAdm/usuario.js"></script>
+<script src="../jsAdm/categoria.js"></script>
+<script src="../jsAdm/jogos.js"></script>
+<script src="../jsAdm/feedback.js"></script>
+
+
 </body>
 </html>
